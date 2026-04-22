@@ -137,8 +137,6 @@ saveBlog(title, content, "", theme, adminRating);
 // ===============================
 async function saveBlog(title, content, imageURL, theme, adminRating){
 
-try{
-
 await addDoc(collection(db,"blogs"),{
 title:title,
 content:content,
@@ -156,12 +154,6 @@ document.getElementById("image").value = "";
 
 loadBlogs();
 
-}catch(error){
-
-alert(error.message);
-
-}
-
 }
 
 
@@ -177,6 +169,25 @@ doc(db,"blogs",window.blogDocs[i])
 );
 
 loadBlogs();
+
+};
+
+
+// ===============================
+// DELETE COMMENT
+// ===============================
+window.deleteComment = async function(commentId){
+
+if(!confirm("Delete this comment?")) return;
+
+const blogId =
+window.blogDocs[window.currentBlogIndex];
+
+await deleteDoc(
+doc(db,"blogs",blogId,"comments",commentId)
+);
+
+loadComments();
 
 };
 
@@ -383,7 +394,16 @@ const c = d.data();
 
 html += `
 <div class="comment">
+
 <p>${c.text}</p>
+
+${window.isAdmin ? `
+<button onclick="deleteComment('${d.id}')"
+style="margin-top:10px;background:#ef4444;">
+Delete
+</button>
+` : ""}
+
 </div>
 `;
 
