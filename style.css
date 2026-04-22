@@ -1,0 +1,593 @@
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:#fff;
+line-height:1.6;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:#000;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 20px rgba(0,0,0,.35);
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+letter-spacing:.5px;
+}
+
+nav{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#fff;
+padding:10px 16px;
+border-radius:10px;
+transition:.25s;
+font-weight:600;
+cursor:pointer;
+}
+
+nav a:hover{
+background:#e50914;
+}
+
+/* HERO */
+.hero{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.8)),
+url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80");
+background-size:cover;
+background-position:center;
+}
+
+.hero-content{
+max-width:800px;
+margin:auto;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:14px;
+}
+
+.hero p{
+font-size:18px;
+opacity:.9;
+}
+
+/* BLOG GRID */
+.blogs{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:24px;
+padding:35px;
+}
+
+/* CARD */
+.card{
+background:#1b1b1b;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.thumb{
+width:100%;
+height:230px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:18px;
+}
+
+.tag{
+display:inline-block;
+padding:6px 10px;
+font-size:13px;
+border-radius:30px;
+background:#e50914;
+margin-bottom:10px;
+font-weight:700;
+}
+
+.card h3{
+font-size:24px;
+margin-bottom:8px;
+}
+
+.card p{
+opacity:.8;
+margin-bottom:14px;
+min-height:48px;
+}
+
+.meta{
+display:flex;
+justify-content:space-between;
+gap:10px;
+font-size:14px;
+opacity:.9;
+margin-bottom:15px;
+flex-wrap:wrap;
+}
+
+button{
+border:none;
+background:#e50914;
+color:#fff;
+padding:11px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:700;
+transition:.25s;
+}
+
+button:hover{
+opacity:.9;
+transform:scale(1.02);
+}
+
+/* MODALS */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.78);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:2000;
+}
+
+.box{
+background:#181818;
+width:100%;
+max-width:760px;
+max-height:95vh;
+overflow:auto;
+padding:26px;
+border-radius:22px;
+box-shadow:0 20px 50px rgba(0,0,0,.5);
+position:relative;
+}
+
+.close{
+position:absolute;
+right:18px;
+top:14px;
+font-size:22px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* FORM ELEMENTS */
+input,
+textarea,
+select{
+width:100%;
+padding:13px 14px;
+margin:10px 0;
+border:none;
+outline:none;
+border-radius:12px;
+background:#2a2a2a;
+color:#fff;
+font-size:15px;
+}
+
+textarea{
+min-height:140px;
+resize:vertical;
+}
+
+/* VIEW BLOG */
+#readTitle{
+font-size:34px;
+margin-bottom:10px;
+padding-right:30px;
+}
+
+#avgRatingBox{
+background:#222;
+padding:12px 14px;
+border-radius:12px;
+margin-bottom:14px;
+font-weight:700;
+}
+
+#readImage{
+width:100%;
+border-radius:14px;
+margin:12px 0 18px;
+display:block;
+object-fit:cover;
+max-height:420px;
+}
+
+.readcontent{
+font-size:17px;
+line-height:1.8;
+white-space:pre-wrap;
+opacity:.95;
+margin-bottom:20px;
+}
+
+hr{
+border:none;
+height:1px;
+background:#333;
+margin:18px 0;
+}
+
+/* COMMENTS */
+#commentsBox{
+margin-top:16px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.comment{
+background:#232323;
+padding:14px;
+border-radius:14px;
+}
+
+.comment b{
+display:block;
+margin-bottom:8px;
+color:#ffd700;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px 20px;
+opacity:.7;
+}
+
+/* ===== PHASE 1 THEMES ===== */
+
+/* IMDb Gold */
+.theme-imdb{
+background:#121212;
+color:#fff;
+}
+
+.theme-imdb #avgRatingBox{
+background:#f5c518;
+color:#000;
+}
+
+/* Netflix Dark */
+.theme-netflix{
+background:#000;
+color:#fff;
+}
+
+.theme-netflix #avgRatingBox{
+background:#e50914;
+}
+
+/* Rotten Critics */
+.theme-rotten{
+background:#fff;
+color:#111;
+}
+
+.theme-rotten input,
+.theme-rotten textarea,
+.theme-rotten select{
+background:#efefef;
+color:#111;
+}
+
+.theme-rotten .comment{
+background:#f4f4f4;
+}
+
+.theme-rotten #avgRatingBox{
+background:#fa320a;
+color:#fff;
+}
+
+/* A24 Minimal */
+.theme-a24{
+background:#f8f4ec;
+color:#111;
+font-family:Georgia, serif;
+}
+
+.theme-a24 input,
+.theme-a24 textarea,
+.theme-a24 select{
+background:#ece6dc;
+color:#111;
+}
+
+.theme-a24 .comment{
+background:#ece6dc;
+}
+
+.theme-a24 #avgRatingBox{
+background:#111;
+color:#fff;
+}
+
+/* Letterboxd */
+.theme-letterboxd{
+background:#14181c;
+color:#fff;
+}
+
+.theme-letterboxd #avgRatingBox{
+background:linear-gradient(90deg,#00e054,#40bcf4,#ff8000);
+color:#111;
+}
+
+/* Horror */
+.theme-horror{
+background:#1b0000;
+color:#ff5252;
+}
+
+.theme-horror #avgRatingBox{
+background:#5a0000;
+color:#fff;
+}
+
+/* Sci-Fi */
+.theme-scifi{
+background:#07111c;
+color:#00eaff;
+}
+
+.theme-scifi #avgRatingBox{
+background:#00283b;
+color:#fff;
+}
+
+/* Action */
+.theme-action{
+background:#1a1a1a;
+color:#ffd700;
+}
+
+.theme-action #avgRatingBox{
+background:#333;
+color:#ffd700;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+header{
+padding:16px 18px;
+flex-direction:column;
+gap:12px;
+}
+
+.logo{
+font-size:22px;
+}
+
+.hero{
+padding:55px 16px;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.blogs{
+padding:18px;
+gap:18px;
+}
+
+#readTitle{
+font-size:26px;
+}
+
+.box{
+padding:18px;
+border-radius:18px;
+}
+
+nav{
+justify-content:center;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero h1{
+font-size:28px;
+}
+
+.card h3{
+font-size:21px;
+}
+
+button{
+width:100%;
+}
+
+.meta{
+flex-direction:column;
+gap:6px;
+}
+
+}
+#shareBtn{
+margin:10px 0;
+background:#2563eb;
+width:100%;
+}
+
+#shareBtn:hover{
+background:#1d4ed8;
+}
+
+.search-section{
+padding:25px 20px 10px;
+text-align:center;
+}
+
+#searchInput{
+width:100%;
+max-width:600px;
+padding:14px 18px;
+border:none;
+border-radius:14px;
+font-size:16px;
+background:#1f1f1f;
+color:#fff;
+outline:none;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+#searchInput:focus{
+border:2px solid #e50914;
+}
+
+/* HERO SECTION */
+.hero{
+padding:90px 20px 70px;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80");
+background-size:cover;
+background-position:center;
+}
+
+.hero-content{
+max-width:950px;
+margin:auto;
+}
+
+.hero h1{
+font-size:68px;
+font-weight:800;
+margin-bottom:28px;
+line-height:1.1;
+}
+
+.hero h1 span{
+color:#e50914;
+}
+
+.hero p{
+font-size:24px;
+line-height:1.8;
+margin-bottom:35px;
+color:#f1f1f1;
+}
+
+.highlight-red{
+color:#e50914;
+font-weight:700;
+}
+
+.highlight-gold{
+color:#ffd700;
+font-weight:700;
+}
+
+.highlight-blue{
+color:#38bdf8;
+font-weight:700;
+}
+
+/* REVIEWER CARD */
+.publisher-card{
+margin:35px auto;
+max-width:780px;
+padding:28px;
+border-radius:20px;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(6px);
+line-height:2;
+font-size:22px;
+}
+
+.publisher-card h3{
+font-size:34px;
+margin-bottom:18px;
+color:#ffd700;
+}
+
+.publisher-card p{
+margin-bottom:14px;
+}
+
+/* BUTTONS */
+.home-buttons{
+margin-top:35px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:18px;
+}
+
+.home-buttons button{
+padding:15px 24px;
+font-size:18px;
+font-weight:700;
+border-radius:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.publisher-card{
+font-size:18px;
+padding:22px;
+line-height:1.8;
+}
+
+.publisher-card h3{
+font-size:26px;
+}
+
+}

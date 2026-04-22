@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniket Reviews</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">🎬 Aniket Reviews</div>
+
+  <nav>
+<a onclick="goHome()">Home</a>
+<a onclick="showTopRated()">Top Rated</a>
+<a onclick="showLatest()">Latest</a>
+<a onclick="openAdmin()">Admin</a>
+</nav>
+
+</header>
+
+<!-- HERO / HOMEPAGE -->
+<section class="hero" id="homeSection">
+
+  <div class="hero-content">
+
+    <h1>🎬 Aniket Reviews</h1>
+
+    <p>
+      Honest movie reviews, critic ratings and fresh opinions.
+      No fake hype. No bias.
+    </p>
+
+    <!-- REVIEWER INTRO -->
+    <div class="publisher-card">
+
+      <h3>👋 Meet Your Reviewer</h3>
+
+      <p>
+        Hey, I'm Aniket and i'm the creator of Aniket Reviews.
+        I review films based on story, acting,
+        visuals, entertainment value and rewatchability.
+      </p>
+
+      <p>
+        Genres I enjoy: I Enjoy them all.
+      </p>
+
+    </div>
+
+    <!-- QUICK ACCESS BUTTONS -->
+  <div class="home-buttons">
+
+<button onclick="showLatest()">
+🆕 Latest Reviews
+</button>
+
+<button onclick="showTopRated()">
+🏆 Top Rated
+</button>
+
+<button onclick="showLatest(); document.getElementById('blogs').scrollIntoView({behavior:'smooth'})">
+🎬 Browse Reviews
+</button>
+
+<button onclick="openAdmin()">
+🔐 Admin
+</button>
+
+</div>
+
+  </div>
+
+</section>
+
+<!-- SEARCH BAR -->
+<section class="search-section">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="🔍 Search movie reviews..."
+    onkeyup="searchBlogs()"
+  >
+</section>
+
+<!-- BLOG POSTS LOAD HERE -->
+<section class="blogs" id="blogs"></section>
+
+<!-- ADMIN LOGIN -->
+<div class="modal" id="loginModal">
+  <div class="box">
+
+    <span class="close" onclick="closeLogin()">✖</span>
+
+    <h2>Admin Login</h2>
+
+    <input type="email" id="email" placeholder="Admin Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="modal" id="adminPanel">
+  <div class="box">
+
+    <span class="close" onclick="closeAdmin()">✖</span>
+
+    <h2>Publish New Review</h2>
+
+    <input type="text" id="title" placeholder="Movie Title">
+
+    <input type="file" id="image" accept="image/*">
+
+    <select id="theme">
+      <option value="theme-imdb">IMDb Gold</option>
+      <option value="theme-netflix">Netflix Dark</option>
+      <option value="theme-rotten">Rotten Critics</option>
+      <option value="theme-a24">A24 Minimal</option>
+      <option value="theme-letterboxd">Letterboxd Social</option>
+      <option value="theme-horror">Horror Crimson</option>
+      <option value="theme-scifi">Sci-Fi Neon</option>
+      <option value="theme-action">Action Blast</option>
+    </select>
+
+    <select id="adminRating">
+      <option value="5">⭐ 5/5</option>
+      <option value="4.5">⭐ 4.5/5</option>
+      <option value="4">⭐ 4/5</option>
+      <option value="3.5">⭐ 3.5/5</option>
+      <option value="3">⭐ 3/5</option>
+      <option value="2.5">⭐ 2.5/5</option>
+      <option value="2">⭐ 2/5</option>
+      <option value="1.5">⭐ 1.5/5</option>
+      <option value="1">⭐ 1/5</option>
+    </select>
+
+    <textarea id="content" placeholder="Write review..."></textarea>
+
+    <button onclick="publishBlog()">Publish Review</button>
+
+  </div>
+</div>
+
+<!-- VIEW REVIEW -->
+<div class="modal" id="viewBlog">
+  <div class="box" id="themeBox">
+
+    <span class="close" onclick="closeView()">✖</span>
+
+    <h2 id="readTitle"></h2>
+
+    <button onclick="shareReview()" id="shareBtn">
+      📤 Share Review
+    </button>
+
+    <div id="avgRatingBox"></div>
+
+    <img id="readImage" style="display:none;">
+
+    <div class="readcontent" id="readContent"></div>
+
+    <hr>
+
+    <h3>Leave Comment</h3>
+
+    <textarea id="commentText" placeholder="Write your comment..."></textarea>
+
+    <button onclick="postComment()">Post</button>
+
+    <div id="commentsBox"></div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Aniket Reviews
+</footer>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
